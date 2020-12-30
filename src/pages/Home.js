@@ -6,6 +6,9 @@ import New from './components/New';
 import { useNavigation } from '@react-navigation/native';
 import House from './components/House';
 import Recommended from './components/Recommended';
+import * as Animatable from 'react-native-animatable';
+
+const AnimatableScroll = Animatable.createAnimatableComponent(ScrollView)
 
 function Home() {
     const navigation = useNavigation();
@@ -29,17 +32,20 @@ function Home() {
             <New cover={require('../assets/casa1.png')}
                  name="Casa de Praia"
                  description="Casa dentro do condomínio, lugar seguro e monitorado 24h, muita área de lazer e próximo a praia."
+                 price="1.200,00"
                  onPress={() => navigation.navigate('Detail')} />
 
             <New cover={require('../assets/casa2.png')}
                  name="Casa em Floripa"
                  description="Casa aconchegante, 3 quartos com suíte, piscina, vaga para 4 carros e churrasqueira."
-                 onPress={() => {}} />
+                 price="2.550,00"
+                 onPress={() => navigation.navigate('Floripa')} />
 
             <New cover={require('../assets/casa3.png')}
                  name="Casa Salvador"
                  description="Casa espelhada com vista para o mar, lugar seguro, 2 quartos com suíte e piscina."
-                 onPress={() => {}} />
+                 price="3.000,00"
+                 onPress={() => navigation.navigate('Salvador')} />
             </ScrollView>
 
 
@@ -47,11 +53,23 @@ function Home() {
                 <Text style={[styles.title, {marginTop: 20}]}>Próximo de você</Text>
             </View>
 
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{paddingHorizontal: 15}} >
-               <House cover={require('../assets/apt1.png')} />
-               <House cover={require('../assets/aptt2.png')} />
-               <House cover={require('../assets/apt3.png')} />
-            </ScrollView>
+            <AnimatableScroll horizontal 
+                              showsHorizontalScrollIndicator={false} 
+                              style={{paddingHorizontal: 15}}
+                              animation="zoomIn" >
+
+               <House animation="zoomIn" cover={require('../assets/apt1.png')} 
+                      description="Apartamento Barrafunda, próximo ao metrô." 
+                      price="400,00" />
+
+               <House cover={require('../assets/aptt2.png')}
+                      description="Apartamento em Guarulhos, próximo ao Shopping Maia." 
+                      price="250,00" />
+
+               <House cover={require('../assets/apt3.png')}
+                      description="Apartamento no Jardins." 
+                      price="375,00" />
+            </AnimatableScroll>
 
             <Text style={[styles.title, {marginTop: 20}]}>
                 Dica do dia

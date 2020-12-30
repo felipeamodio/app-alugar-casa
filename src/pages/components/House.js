@@ -1,19 +1,19 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
 export default function House(props) {
     return(
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container}>
             <View>
                 <Image source={props.cover}
                        style={styles.cover} />
             </View>
 
             <View style={styles.content}>
-                <Text style={styles.description}>Apartamento Vila Madalena.</Text>
-                <Text style={styles.price}>R$400,00</Text>
+                <Text style={styles.description}>{props.description}</Text>
+                <Text style={styles.price}>R${props.price}</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
     },
     description: {
         fontSize: 9,
-        fontFamily: 'Montserrat_500Medium'
+        fontFamily: 'Montserrat_500Medium',
+        marginBottom: 5
     },
     price: {
         fontSize: 12,

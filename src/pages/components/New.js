@@ -25,7 +25,7 @@ export default function New(props) {
 
         <View style={styles.footer}>
             <View style={{width: '80%'}}>
-                <Text style={styles.price}>R$1.200,00</Text>
+                <Text style={styles.price}>R${props.price}</Text>
             </View>
             <View style={{width: '20%'}}>
                 <Ionicons name="ios-add-circle" size={24} color="#000000" />

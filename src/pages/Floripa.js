@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { Feather, Ionicons } from '@expo/vector-icons';
-import SwiperComponent from './components/Swiper';
+import SwiperComponent from './components/SwiperFloripa';
 import Stars from 'react-native-stars';
 
-export default function Detail(){
+export default function Floripa(){
     return(
         <ScrollView style={styles.container}>
             <View style={styles.swiperContent}>
@@ -13,13 +13,13 @@ export default function Detail(){
 
             <View style={styles.headerContent}>
                 <View style={{width: '65%'}}>
-                    <Text style={styles.house}>Casa de Praia</Text>
+                    <Text style={styles.house}>Casa em Floripa</Text>
                 </View>
 
                 <View style={{width: '35%'}}>
                     <Text style={styles.rating}>Avaliações</Text>
                     <View style={{alignItems: 'center', flexDirection: 'row'}}>
-                        <Stars default={4} //vai começar com 4 estrelas 
+                        <Stars default={5} //vai começar com 4 estrelas 
                                count={5} //vai ter no máximo 5 estrelas
                                half={true} //pode habilitar a estrela pela metade
                                starSize={25}
@@ -32,10 +32,10 @@ export default function Detail(){
             </View>
 
             <Text style={styles.price}>
-                R$1.200,00
+                R$2.550,00
             </Text>
             <Text style={styles.description}>
-                Casa dentro do condomínio, lugar seguro e monitorado 24h, muita área de lazer e próximo a praia.
+            Casa aconchegante, 3 quartos com suíte, piscina, vaga para 4 carros e churrasqueira.
             </Text>
 
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
